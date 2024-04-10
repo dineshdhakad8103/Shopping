@@ -25,6 +25,7 @@ const Electronics = () => {
     Navigate("/item", {state: data})
     //console.log(data)
   }
+  
   async function getDeta()
   { 
     var result=await fetch("https://fakestoreapi.com/products/category/electronics")
