@@ -7,15 +7,19 @@ import {
   MDBCardText,
   MDBCardFooter,
   MDBRow,
+  MDBBtn,
   MDBCol
 } from 'mdb-react-ui-kit';
 import Footer from './Footer';
+import { getId } from '@testing-library/react';
 
 const Home = () => {
   const [apidata,setdata] = useState([])
   useEffect(()=>{
     getDeta()
   },[])
+ 
+
   async function getDeta()
   { 
     var result=await fetch("https://fakestoreapi.com/products/category/jewelery")
@@ -30,8 +34,8 @@ const Home = () => {
     <div>
      <MDBRow className='row-cols-1 row-cols-md-3 g-4'>
      
-      {
-        apidata.map((item)=>
+      { 
+        apidata.map((item,)=>
         <MDBCol>
         <MDBCard className='h-100'>
 <center>
@@ -50,6 +54,7 @@ const Home = () => {
               This is a wider card with supporting text below as a natural lead-in to additional content. This
               card has even longer content than the first to show that equal height action.
             </MDBCardText>
+            
           </MDBCardBody>
           <MDBCardFooter>
             <small className='text-muted'>Last updated 3 mins ago</small>

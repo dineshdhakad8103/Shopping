@@ -7,15 +7,24 @@ import {
   MDBCardText,
   MDBCardFooter,
   MDBRow,
-  MDBCol
+  MDBCol,
+  MDBBtn
 } from 'mdb-react-ui-kit';
-import Footer from './Footer';
+import { useNavigate } from "react-router-dom" 
+import Footer from './Footer'; 
 
 const Electronics = () => {
   const [apidata,setdata] = useState([])
+  const Navigate =useNavigate()
   useEffect(()=>{
     getDeta()
   },[])
+  function getId(pid)
+  {
+    const data={pid:pid,add:"Indore"}
+    Navigate("/item", {state: data})
+    //console.log(data)
+  }
   async function getDeta()
   { 
     var result=await fetch("https://fakestoreapi.com/products/category/electronics")
@@ -50,6 +59,8 @@ const Electronics = () => {
               This is a wider card with supporting text below as a natural lead-in to additional content. This
               card has even longer content than the first to show that equal height action.
             </MDBCardText>
+      <center><MDBBtn onClick={()=> getId(item.id)}>View details {item.id}</MDBBtn></center>
+
           </MDBCardBody>
           <MDBCardFooter>
             <small className='text-muted'>Last updated 3 mins ago</small>
