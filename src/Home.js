@@ -55,12 +55,13 @@ const Home = () => {
             <MDBCardTitle style={{color:"blue"}}>Rs{item.price*80}</MDBCardTitle>
             <MDBCardTitle style={{color:"red"}}>Rs{item.category}</MDBCardTitle>
             <MDBCardTitle style={{color:"blue"}}>Rs{item.rating.rate}*</MDBCardTitle>
-            <MDBCardText>
+            <MDBCardText >
+              {item.description.slice(0,100)}
+
               This is a wider card with supporting text below as a natural lead-in to additional content. This
               card has even longer content than the first to show that equal height action.
             </MDBCardText>
-        <MDBCardTitle>:description{item.description} </MDBCardTitle>
-
+        
       <center><MDBBtn onClick={()=> getId(item.id)}>View details {item.id}</MDBBtn></center>
 
           </MDBCardBody>
